@@ -4,7 +4,6 @@
 # documentation.
 # This workflow will build a Java project with Gradle and cache/restore any dependencies to improve the workflow execution time
 # For more information see: https://help.github.com/actions/language-and-framework-guides/building-and-testing-java-with-gradle
-
 name: Java CI with Gradle
 
 on:
@@ -14,7 +13,7 @@ on:
     branches: [ master ]
 
 jobs:
-  build:
+  build-java:
 
     runs-on: ubuntu-latest
     
@@ -31,8 +30,8 @@ jobs:
 
     - name: Build with Gradle
       run: ./gradlew build
-      
-    - name: Build and push
+
+    - name: Build and Push Docker Image
       uses: mr-smither-excellent/build-push-action@v4
       with:
         image: karankundar2/testgithubactions
